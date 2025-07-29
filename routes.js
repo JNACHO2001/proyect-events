@@ -1,3 +1,4 @@
+import { postEvents } from "./src/js/form";
 import { authGuard } from "./src/js/guards";
 import { infoUser } from "./src/js/home";
 import { logicrender } from "./src/js/login";
@@ -29,7 +30,8 @@ const routes = {
     protected: true,
   },
   "/form":{
-    path:"/src/views/pages/form.html"
+    path:"/src/views/pages/form.html",
+    setup: postEvents
 
   }
 };

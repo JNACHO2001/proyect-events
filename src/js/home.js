@@ -13,7 +13,9 @@ export function infoUser() {
   
 async function  addEvent() {
   const addEvent=document.querySelector(".add-event-btn")
-  addEvent.addEventListener("click",()=>{
+  addEvent.addEventListener("click",(e)=>{
+    e.preventDefault()
+    
     redirecto("/form")
     
 

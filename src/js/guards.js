@@ -6,8 +6,8 @@ export function authGuard(route,path) {
 
 
     if (isProtected && !auth) {
-        alert("debes iniciar seccion")
-          return("/login")
+        
+          return("/walcome")
         
     }
 
@@ -15,6 +15,8 @@ export function authGuard(route,path) {
         return("/home")
         
     }
+    
+  
 
     return null;
     
