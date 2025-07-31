@@ -460,30 +460,34 @@ button {
 }
 
 .event-description {
+  margin-left: 10px;
   font-size: 13px;
   color: #666;
   line-height: 1.4;
 }
 
 .event-capacity {
+  margin-right: 20px;
   font-size: 14px;
   color: #333;
   text-align: center;
 }
 
 .event-date {
+  margin-left: -15px;
   font-size: 13px;
   color: #666;
 }
 
 .event-actions {
+  margin-right: 40px;
   display: flex;
   gap: 28px;
   justify-content: center;
 }
 
 .action-btn {
-  width: 24px;
+ 
   height: 24px;
   border: none;
   background: none;
@@ -496,12 +500,14 @@ button {
 }
 
 .action-btn:hover {
-  background: #fbf3f3;
+  
+  background: #ffffff;
+  
 }
-#bnt-delete {
+.btn-delete {
   color: red;
 }
-#bnt-edit {
+.btn-edit {
   color: blue;
 }
 
