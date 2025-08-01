@@ -10,21 +10,28 @@ export function infoUser() {
   <p>${user.phone} </p>
   `;
   getEvents();
+
+  addEvent();
+
+  async function addEvent() {
+    const addEvent = document.querySelector(".add-event-btn");
+    addEvent.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      redirecto("/form");
+    });
+  }
   async function getEvents() {
     const response = await fetch(url);
     const data = await response.json();
-
-    
 
     try {
       if (!data || data.length === 0) {
         console.log("no hay datos");
         Content.innerHTML += `<h3>No hay ningun registro</h3>`;
       } else {
-        
         data.forEach((event) => {
-        
-  Content.innerHTML += `
+          Content.innerHTML += `
     <div class="event-row selected">
     <h3>event</h3>
       <div class="event-name">${event.name}</div>
@@ -37,50 +44,22 @@ export function infoUser() {
       </div>
     </div>
   `;
-
- 
-
-
-
- 
-});
- Content.addEventListener("click",(click)=>{
-  if (click.target.classList.contains("btn-edit")) {
-    const id =click.target.dataset.id
-    console.log("Editar evento con ID:", id)
-    
-  }
-  if (click.target.classList.contains("btn-delete")) {
-    const id =click.target.dataset.id
-    console.log("Eliminar evento con ID:", id)
-    
-  }
-
-  })
-
+        });
+        Content.addEventListener("click", (click) => {
+          if (click.target.classList.contains("btn-edit")) {
+            const id = click.target.dataset.id;
+            console.log("Editar evento con ID:", id);
+          }
+          if (click.target.classList.contains("btn-delete")) {
+            const id = click.target.dataset.id;
+            console.log("Eliminar evento con ID:", id);
+          }
+        });
       }
     } catch (error) {
       console.log("nuevo error", error);
     }
   }
-
-  
-  async function addEvent() {
-    const addEvent = document.querySelector(".add-event-btn");
-    addEvent.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      redirecto("/form");
-    });
-  }
-  addEvent();
-
-
-
-
-
-  
-
   const btnEliminar = document.getElementById("exit");
   btnEliminar.addEventListener("click", (e) => {
     e.preventDefault();
