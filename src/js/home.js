@@ -23,7 +23,7 @@ export function infoUser() {
       } else {
         
         data.forEach((event) => {
-          console.log(event.id)
+        
   Content.innerHTML += `
     <div class="event-row selected">
     <h3>event</h3>
@@ -37,13 +37,34 @@ export function infoUser() {
       </div>
     </div>
   `;
+
+ 
+
+
+
+ 
 });
+ Content.addEventListener("click",(click)=>{
+  if (click.target.classList.contains("btn-edit")) {
+    const id =click.target.dataset.id
+    console.log("Editar evento con ID:", id)
+    
+  }
+  if (click.target.classList.contains("btn-delete")) {
+    const id =click.target.dataset.id
+    console.log("Eliminar evento con ID:", id)
+    
+  }
+
+  })
 
       }
     } catch (error) {
       console.log("nuevo error", error);
     }
   }
+
+  
   async function addEvent() {
     const addEvent = document.querySelector(".add-event-btn");
     addEvent.addEventListener("click", (e) => {
@@ -53,6 +74,12 @@ export function infoUser() {
     });
   }
   addEvent();
+
+
+
+
+
+  
 
   const btnEliminar = document.getElementById("exit");
   btnEliminar.addEventListener("click", (e) => {
