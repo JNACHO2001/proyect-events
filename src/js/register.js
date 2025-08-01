@@ -1,4 +1,4 @@
-import { bts } from "./services";
+import { bts, postRegister } from "./services";
 
 export function registerender() {
     bts()
@@ -25,7 +25,7 @@ export function registerender() {
 
 
        }
-        if (newUser.password!=newUser.confirmpassword  ) {
+       if (newUser.password!=newUser.confirmpassword  ) {
             alert("las constraseñas no conciden")
              return
             
@@ -35,23 +35,8 @@ export function registerender() {
             return
             
         }
-
-        const response = await fetch(`${url}/users`, {
-            method: "POST",
-            headers: { "Content-type": "Application/json" },
-            body: JSON.stringify(newUser)
-
-
-
-        })
-
-        if (response.ok) {
-            alert("registrado")
-
-
-        } else {
-            alert("no se pudo registrar")
-        }
+      await postRegister(newUser)
+       
 
 
 
