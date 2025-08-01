@@ -38,7 +38,7 @@ export async function getlogin(email, password) {
     }
     currentuser(user);
     redirecto("/home");
-    console.log(user);
+   
   } catch (error) {
     console.log(error);
   }
