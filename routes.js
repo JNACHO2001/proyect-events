@@ -29,21 +29,20 @@ const routes = {
     setup: infoUser,
     protected: true,
   },
-  "/form":{
-    path:"/src/views/pages/form.html",
-    setup: postEvents
-
-  }
+  "/form": {
+    path: "/src/views/pages/form.html",
+    setup: postEvents,
+  },
 };
 
 export async function renderRouter() {
-  const app = document.getElementById("landing");
+  const app = document.getElementById("app");
 
   const path = window.location.pathname;
 
   const route = routes[path] || routes["/notFound"];
 
-  const applyGuardian = authGuard(route,path);
+  const applyGuardian = authGuard(route, path);
 
   if (applyGuardian) {
     window.history.pushState({}, "", applyGuardian);
