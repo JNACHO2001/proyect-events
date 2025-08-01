@@ -1,10 +1,7 @@
-
-import { bts,  getlogin } from "./services";
+import { bts, getlogin } from "./services";
 
 export function logicrender() {
-
   bts();
-  
 
   const emailinput = document.getElementById("email");
   const passwordinput = document.getElementById("password");
@@ -17,12 +14,10 @@ export function logicrender() {
     const password = passwordinput.value;
 
     if (!email || !password) {
-      alert("por favor llenar los campos")
-      return
-      
+      alert("por favor llenar los campos");
+      return;
     }
 
     await getlogin(email, password);
   });
-  
 }

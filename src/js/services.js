@@ -48,9 +48,7 @@ export async function postRegister(newUser) {
     const response = await fetch(`${url}/users`, {
       method: "POST",
       headers: { "Content-type": "Application/json" },
-      body: JSON.stringify(newUser)
-    
-
+      body: JSON.stringify(newUser),
     });
 
     if (response.ok) {
@@ -61,6 +59,22 @@ export async function postRegister(newUser) {
     }
   } catch (error) {
     console.log("se produjo un error", error);
+  }
+}
+export async function postNewEvents(newEvent) {
+  try {
+    const response = await fetch(`${url}/events`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newEvent),
+    });
+    if (response.ok) {
+      alert("Registro exitoso");
+    } else {
+      alert("No se registro");
+    }
+  } catch (error) {
+    console.log("no se cargo la peticion", error);
   }
 }
 
