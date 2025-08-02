@@ -1,6 +1,6 @@
 import { postEvents } from "./src/js/form";
 import { authGuard } from "./src/js/guards";
-import { infoUser } from "./src/js/home";
+import { setupUser } from "./src/js/home";
 import { logicrender } from "./src/js/login";
 import { notFound } from "./src/js/notFound";
 import { registerender } from "./src/js/register";
@@ -26,7 +26,7 @@ const routes = {
 
   "/home": {
     path: "/src/views/pages/home.html",
-    setup: infoUser,
+    setup: setupUser,
     protected: true,
   },
   "/form": {

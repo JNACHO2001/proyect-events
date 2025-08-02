@@ -1,7 +1,7 @@
 import { redirecto } from "../../routes";
 import { deleteEvents, getViewEvents } from "./services";
 
-export function infoUser() {
+export function setupUser() {
   renderUserInfo();
   setupAddEventButton();
   loadAndDisplayEvents();

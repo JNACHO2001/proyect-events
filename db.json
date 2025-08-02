@@ -20,5 +20,13 @@
       "roleId": 1
     }
   ],
-  "events": []
+  "events": [
+    {
+      "name": "erw",
+      "description": "werw",
+      "date": "2025-08-06",
+      "capacity": "1010",
+      "id": "afa2"
+    }
+  ]
 }
