@@ -1,6 +1,7 @@
 import { redirecto } from "../../routes";
+import { deleteEvents, getViewEvents } from "./services";
 
-const url = "http://localhost:3000/events";
+const url = "http://localhost:3000";
 
 export function infoUser() {
   renderUserInfo();
@@ -35,8 +36,7 @@ async function loadAndDisplayEvents() {
   const Content = document.querySelector(".events-table");
 
   try {
-    const response = await fetch(url);
-    const data = await response.json();
+    const data = await getViewEvents();
 
     if (!data || data.length === 0) {
       Content.innerHTML += `<h3>No hay ningún registro</h3>`;
@@ -49,7 +49,6 @@ async function loadAndDisplayEvents() {
 
     // Asignar eventos a los botones
     Content.addEventListener("click", handleEventActions);
-
   } catch (error) {
     console.error("Error al cargar eventos:", error);
   }
@@ -70,10 +69,11 @@ function renderEventRow(event) {
       </div>
     </div>
   `;
+  reset();
 }
 
 // 3.2 Manejar botones de editar y eliminar
-function handleEventActions(e) {
+async function handleEventActions(e) {
   const target = e.target;
 
   if (target.classList.contains("btn-edit")) {
@@ -84,7 +84,10 @@ function handleEventActions(e) {
 
   if (target.classList.contains("btn-delete")) {
     const id = target.dataset.id;
-    console.log("Eliminar evento con ID:", id);
+    await deleteEvents(id);
+    loadAndDisplayEvents();
+    reset();
+
     // Aquí puedes implementar la función de borrado
   }
 }
@@ -97,4 +100,8 @@ function setupLogoutButton() {
     localStorage.removeItem("current");
     redirecto("/login");
   });
+}
+
+function reset() {
+  document.querySelector(".event-row.selected").innerHTML = "";
 }

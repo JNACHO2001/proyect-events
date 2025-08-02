@@ -38,7 +38,6 @@ export async function getlogin(email, password) {
     }
     currentuser(user);
     redirecto("/home");
-   
   } catch (error) {
     console.log(error);
   }
@@ -72,6 +71,26 @@ export async function postNewEvents(newEvent) {
       alert("Registro exitoso");
     } else {
       alert("No se registro");
+    }
+  } catch (error) {
+    console.log("no se cargo la peticion", error);
+  }
+}
+
+export async function getViewEvents() {
+  const response = await fetch(`${url}/events`);
+  return await response.json();
+}
+
+export async function deleteEvents(id) {
+  try {
+    const response = await fetch(`${url}/events/${id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      alert("usuario eliminado");
+    } else {
+      alert("usuario no  eliminado");
     }
   } catch (error) {
     console.log("no se cargo la peticion", error);

@@ -433,7 +433,7 @@ button {
   grid-template-columns: 60px 1fr 2fr 80px 120px 80px;
   gap: 20px;
   align-items: center;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #c51717;
   transition: all 0.2s ease;
 }
 
@@ -442,7 +442,7 @@ button {
 }
 
 .event-row.selected {
-  border: 2px solid #c1b6d9;
+  border: 2px solid #5f29d5;
   background: #f0f9ff;
 }
 
