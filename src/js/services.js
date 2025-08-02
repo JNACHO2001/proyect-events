@@ -81,6 +81,26 @@ export async function getViewEvents() {
   const response = await fetch(`${url}/events`);
   return await response.json();
 }
+export async function oneEvent(id) {
+  const response = await fetch(`${url}/events/${id}`);
+  return response.json();
+}
+export async function putEvent(id, updateEvent) {
+  try {
+    const response = await fetch(`${url}/events/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updateEvent),
+    });
+    if (response.ok) {
+      alert("Registro actualizado");
+    } else {
+      alert("No se actualizo");
+    }
+  } catch (error) {
+    console.log("no se cargo la peticion", error);
+  }
+}
 
 export async function deleteEvents(id) {
   try {
