@@ -20,22 +20,5 @@
       "roleId": 1
     }
   ],
-  "events": [
-    {
-      "id": "fa38",
-      "name": "juan",
-      "description": "lle ga a barranquillña ",
-      "date": "2025-08-06",
-      "capacity": 10,
-      "users": []
-    },
-    {
-      "id": "32d9",
-      "name": "",
-      "description": "",
-      "date": "",
-      "capacity": 0,
-      "users": []
-    }
-  ]
+  "events": []
 }

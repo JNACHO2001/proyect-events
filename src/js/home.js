@@ -1,8 +1,6 @@
 import { redirecto } from "../../routes";
 import { deleteEvents, getViewEvents } from "./services";
 
-
-
 export function infoUser() {
   renderUserInfo();
   setupAddEventButton();
@@ -33,22 +31,23 @@ function setupAddEventButton() {
 
 // 3. Obtener eventos y mostrarlos
 async function loadAndDisplayEvents() {
-  const Content = document.querySelector(".events-table");
-
+  const body = document.querySelector(".event-body"); // Contenedor dinámico
   try {
     const data = await getViewEvents();
+    body.innerHTML = "";
 
     if (!data || data.length === 0) {
-      Content.innerHTML += `<h3>No hay ningún registro</h3>`;
+      body.innerHTML += `<h3>No hay ningún registro</h3>`;
       return;
     }
 
     data.forEach((event) => {
-      Content.innerHTML += renderEventRow(event);
+      body.innerHTML += renderEventRow(event);
     });
 
     // Asignar eventos a los botones
-    Content.addEventListener("click", handleEventActions);
+    body.removeEventListener("click", handleEventActions); // 🔧 eliminarlo
+    body.addEventListener("click", handleEventActions); // ✅ agregarlo limpio
   } catch (error) {
     console.error("Error al cargar eventos:", error);
   }
@@ -69,7 +68,6 @@ function renderEventRow(event) {
       </div>
     </div>
   `;
- 
 }
 
 // 3.2 Manejar botones de editar y eliminar
@@ -78,15 +76,14 @@ async function handleEventActions(e) {
 
   if (target.classList.contains("btn-edit")) {
     const id = target.dataset.id;
-    redirecto(`/form?id=${id}`)
-    
+    redirecto(`/form?id=${id}`);
   }
 
   if (target.classList.contains("btn-delete")) {
     const id = target.dataset.id;
     await deleteEvents(id);
+
     loadAndDisplayEvents();
-    updateForm();
   }
 }
 
@@ -97,8 +94,4 @@ function setupLogoutButton() {
     localStorage.removeItem("current");
     redirecto("/login");
   });
-}
-
-function updateForm() {
-  document.querySelector(".event-row.selected").innerHTML = "";
 }

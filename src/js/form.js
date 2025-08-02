@@ -26,7 +26,7 @@ export function postEvents() {
 
     
   }else{
-    form.addEventListener("click", async (e) => {
+    form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const newEvent = {
       name: nameImput.value,
