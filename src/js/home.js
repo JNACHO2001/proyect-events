@@ -1,7 +1,7 @@
 import { redirecto } from "../../routes";
 import { deleteEvents, getViewEvents } from "./services";
 
-const url = "http://localhost:3000";
+
 
 export function infoUser() {
   renderUserInfo();
@@ -69,7 +69,7 @@ function renderEventRow(event) {
       </div>
     </div>
   `;
-  reset();
+ 
 }
 
 // 3.2 Manejar botones de editar y eliminar
@@ -78,7 +78,8 @@ async function handleEventActions(e) {
 
   if (target.classList.contains("btn-edit")) {
     const id = target.dataset.id;
-    console.log("Editar evento con ID:", id);
+    redirecto(`/form?id=${id}`)
+    
   }
 
   if (target.classList.contains("btn-delete")) {
