@@ -79,20 +79,16 @@ async function handleEventActions(e) {
   if (target.classList.contains("btn-edit")) {
     const id = target.dataset.id;
     console.log("Editar evento con ID:", id);
-    // Aquí puedes redirigir a la vista de edición
   }
 
   if (target.classList.contains("btn-delete")) {
     const id = target.dataset.id;
     await deleteEvents(id);
     loadAndDisplayEvents();
-    reset();
-
-    // Aquí puedes implementar la función de borrado
+    updateForm();
   }
 }
 
-// 4. Botón de cerrar sesión
 function setupLogoutButton() {
   const btnEliminar = document.getElementById("exit");
   btnEliminar.addEventListener("click", (e) => {
@@ -102,6 +98,6 @@ function setupLogoutButton() {
   });
 }
 
-function reset() {
+function updateForm() {
   document.querySelector(".event-row.selected").innerHTML = "";
 }

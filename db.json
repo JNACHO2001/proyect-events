@@ -18,45 +18,7 @@
       "password": "123456",
       "confirmpassword": "123456",
       "roleId": 1
-    },
-    {
-      "id": "212e",
-      "name": "juan",
-      "email": "juan@gmail.com",
-      "phone": "3654656544",
-      "password": "123456",
-      "confirmpassword": "123456",
-      "roleId": 2
-    },
-    {
-      "id": "e27f",
-      "name": "hfgh",
-      "email": "gfhgmail@gmail.com",
-      "phone": "65464",
-      "password": "564654",
-      "confirmpassword": "564654",
-      "roleId": 2
-    },
-    {
-      "id": "19f8",
-      "name": "hfgh",
-      "email": "gfhgmail@gmail.com",
-      "phone": "65464",
-      "password": "564654",
-      "confirmpassword": "564654",
-      "roleId": 2
-    },
-    {
-      "id": "9d0f",
-      "name": "jose",
-      "email": "jo@gmail.com",
-      "phone": "4566",
-      "password": "123456",
-      "confirmpassword": "123456",
-      "roleId": 2
     }
   ],
-  "events": [
-  
-  ]
+  "events": []
 }
