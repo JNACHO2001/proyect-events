@@ -27,17 +27,10 @@ export function bts() {
 
 export async function getlogin(email, password) {
   try {
-    const response = await fetch(`${url}/users?email=${email}&_expand=role`);
-    const data = await response.json();
-
-    const user = data[0];
-
-    if (!user || user.password !== password) {
-      alert("las credenciales son incorrectas ");
-      return;
-    }
-    currentuser(user);
-    redirecto("/home");
+    const response = await fetch(
+      `${url}/users?email=${email}&password=${password}`
+    );
+    return response.json();
   } catch (error) {
     console.log(error);
   }
