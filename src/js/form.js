@@ -2,6 +2,7 @@ import { redirecto } from "../../routes";
 import { oneEvent, postNewEvents, putEvent } from "./services";
 
 export function postEvents() {
+  const title = document.querySelector(".form-title");
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -17,6 +18,7 @@ export function postEvents() {
   });
 
   if (id) {
+    title.textContent = "Update Event";
     btnSave.style.backgroundColor = "green";
     btnSave.textContent = "Update";
 
@@ -34,7 +36,8 @@ export function postEvents() {
         name: nameImput.value,
         description: descriptionImput.value,
         date: dateImput.value,
-        capacity: capacityImput.value,
+        capacity: parseInt(capacityImput.value),
+        users: [],
       };
 
       await putEvent(id, updateEvent);
@@ -46,7 +49,7 @@ export function postEvents() {
         name: nameImput.value,
         description: descriptionImput.value,
         date: dateImput.value,
-        capacity: Number(capacityImput.value),
+        capacity: parseInt(capacityImput.value),
         users: [],
       };
       await postNewEvents(newEvent);

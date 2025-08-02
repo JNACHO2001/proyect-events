@@ -22,11 +22,12 @@
   ],
   "events": [
     {
-      "name": "erw",
-      "description": "werw",
-      "date": "2025-08-06",
-      "capacity": "1010",
-      "id": "afa2"
+      "name": "jhon ",
+      "description": "jhon entra en la pólicia ",
+      "date": "2026-01-12",
+      "capacity": 1,
+      "users": [],
+      "id": "4c01"
     }
   ]
 }

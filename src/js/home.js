@@ -46,8 +46,8 @@ async function loadAndDisplayEvents() {
     });
 
     // Asignar eventos a los botones
-    body.removeEventListener("click", handleEventActions); // 🔧 eliminarlo
-    body.addEventListener("click", handleEventActions); // ✅ agregarlo limpio
+    body.removeEventListener("click", handleEventActions);
+    body.addEventListener("click", handleEventActions);
   } catch (error) {
     console.error("Error al cargar eventos:", error);
   }
