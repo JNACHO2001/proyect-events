@@ -24,8 +24,11 @@ export function viewVisitSetup() {
     }
 
     data.forEach((event) => {
+        
+        
       body.innerHTML += renderEventRow(event);
     });
+    body.addEventListener("click", handleEventActions);
 
     // Asignar eventos a los botones
    
@@ -33,7 +36,7 @@ export function viewVisitSetup() {
     console.error("Error al cargar eventos:", error);
   }
 }
-function renderEventRow(event) {
+ function renderEventRow(event) {
   return `
     <div class="event-row selected">
       <h3>event</h3>
@@ -45,8 +48,22 @@ function renderEventRow(event) {
         <button class="btn-edit action-btn" data-id="${event.id}">Ingresar</button>
         
     </div>
-  `;
+  `
+  
+ 
 }
+
+async function handleEventActions(e) {
+  const target = e.target;
+
+  if (target.classList.contains("btn-edit")) {
+    const id = target.dataset.id;
+    alert(id)
+   
+  }
+  }
+
+
 
 
 
