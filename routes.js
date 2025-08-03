@@ -34,6 +34,11 @@ const routes = {
     setup: postEvents,
     protected: true,
   },
+  "/viewVisit": {
+    path: "/src/views/pages/viewVisit.html",
+    
+   
+  }
 };
 
 export async function renderRouter() {

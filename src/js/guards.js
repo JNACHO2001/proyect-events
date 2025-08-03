@@ -19,7 +19,7 @@ export function authGuard(route, path) {
 
     // Usuario normal (rolId === 2)
     if (auth.roleId === 2) {
-      return "/notFound"; // o quizás "/user-home"
+      return "/viewVisit"; // o quizás "/user-home"
     }
   }
 
