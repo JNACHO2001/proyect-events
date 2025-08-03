@@ -47,5 +47,22 @@
       "roleId": 2
     }
   ],
-  "events": []
+  "events": [
+    {
+      "id": "d38f",
+      "name": "pelicula",
+      "description": "harry poter",
+      "date": "2025-08-06",
+      "capacity": 10,
+      "users": []
+    },
+    {
+      "name": "pelicula",
+      "description": "superman",
+      "date": "2025-08-06",
+      "capacity": 10,
+      "users": [],
+      "id": "7df7"
+    }
+  ]
 }

@@ -37,10 +37,9 @@ const routes = {
   },
   "/viewVisit": {
     path: "/src/views/pages/viewVisit.html",
-    setup:viewVisitSetup
-    
-   
-  }
+    setup: viewVisitSetup,
+    protected: true,
+  },
 };
 
 export async function renderRouter() {

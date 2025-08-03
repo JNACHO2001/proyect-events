@@ -28,9 +28,8 @@ function setupAddEventButton() {
     redirecto("/form");
   });
 }
-
 // 3. Obtener eventos y mostrarlos
-async function loadAndDisplayEvents() {
+export async function loadAndDisplayEvents() {
   const body = document.querySelector(".event-body"); // Contenedor dinámico
   try {
     const data = await getViewEvents();
@@ -87,7 +86,7 @@ async function handleEventActions(e) {
   }
 }
 
-function setupLogoutButton() {
+export function setupLogoutButton() {
   const btnEliminar = document.getElementById("exit");
   btnEliminar.addEventListener("click", (e) => {
     e.preventDefault();
