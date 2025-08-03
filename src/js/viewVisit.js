@@ -54,11 +54,20 @@ export function viewVisitSetup() {
 }
 
 async function handleEventActions(e) {
+const user = JSON.parse(localStorage.getItem("current"));
   const target = e.target;
 
   if (target.classList.contains("btn-edit")) {
     const id = target.dataset.id;
-    alert(id)
+   const  events = await getViewEvents()
+
+   const event =events.find(ev => ev.id==id)
+   
+   if (!event.users.includes(user.id)) {
+    alert("no estas inscrito"+user.name+"al evento"+event.name)
+    
+   }
+   
    
   }
   }
