@@ -34,7 +34,7 @@ export function logicrender() {
         redirecto("/home");  // Admin
       } else if (user.roleId === 2) {
         redirecto("/viewVisit")
-        localStorage.removeItem("current");  // Usuario común
+         // Usuario común
       } else {
         redirecto("/notFound"); // Rol desconocido
       }

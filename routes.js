@@ -4,6 +4,7 @@ import { setupUser } from "./src/js/home";
 import { logicrender } from "./src/js/login";
 import { notFound } from "./src/js/notFound";
 import { registerender } from "./src/js/register";
+import { viewVisitSetup } from "./src/js/viewVisit";
 import { logicWalcome } from "./src/js/walcome";
 
 const routes = {
@@ -36,6 +37,7 @@ const routes = {
   },
   "/viewVisit": {
     path: "/src/views/pages/viewVisit.html",
+    setup:viewVisitSetup
     
    
   }

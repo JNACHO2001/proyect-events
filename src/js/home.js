@@ -9,7 +9,7 @@ export function setupUser() {
 }
 
 // 1. Mostrar la información del usuario
-function renderUserInfo() {
+export function renderUserInfo() {
   const userInfo = document.querySelector(".user-info");
   const user = JSON.parse(localStorage.getItem("current"));
   userInfo.innerHTML = `

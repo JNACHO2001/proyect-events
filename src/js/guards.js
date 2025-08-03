@@ -22,6 +22,7 @@ export function authGuard(route, path) {
       return "/viewVisit"; // o quizás "/user-home"
     }
   }
+  
 
   // Si pasa todo, no redirigir
   return null;
