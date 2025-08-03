@@ -32,6 +32,7 @@ const routes = {
   "/form": {
     path: "/src/views/pages/form.html",
     setup: postEvents,
+    protected: true,
   },
 };
 
