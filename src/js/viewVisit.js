@@ -7,7 +7,8 @@ export function viewVisitSetup() {
   loadAndDisplayEvents();
 }
 async function loadAndDisplayEvents() {
-  const body = document.querySelector(".event-body"); // Contenedor dinámico
+  const body = document.querySelector(".event-body");
+   const userId = JSON.parse(localStorage.getItem("current")).id; // Contenedor dinámico
   try {
     const data = await getViewEvents();
     body.innerHTML = "";
@@ -18,7 +19,7 @@ async function loadAndDisplayEvents() {
     }
 
     data.forEach((event) => {
-      body.innerHTML += renderEventRow(event);
+      body.innerHTML += renderEventRow(event, userId);
     });
     body.addEventListener("click", handleEventActions);
 
@@ -27,7 +28,10 @@ async function loadAndDisplayEvents() {
     console.error("Error al cargar eventos:", error);
   }
 }
-function renderEventRow(event) {
+function renderEventRow(event, userId) {
+  const isInscrito = event.users.includes(userId);
+  const btnText = isInscrito ? "Exit" : "Ingresar";
+  const btnColor = isInscrito ? "red" : "green";
   return `
     <div class="event-row selected">
       <h3>event</h3>
@@ -36,7 +40,7 @@ function renderEventRow(event) {
       <div class="event-capacity">${event.capacity}</div>
       <div class="event-date">${event.date}</div>
       <div class="event-actions">
-        <button class="btn-edit action-btn" data-id="${event.id}">Ingresar</button>
+        <button class="btn-edit action-btn" data-id="${event.id}" style="color: ${btnColor}">${btnText}</button>
         
     </div>
   `;
@@ -44,9 +48,12 @@ function renderEventRow(event) {
 
 async function handleEventActions(e) {
   const target = e.target;
+
   if (target.classList.contains("btn-edit")) {
     const eventId = target.dataset.id;
     const userId = JSON.parse(localStorage.getItem("current")).id;
-    patchEvent(eventId, userId);
+
+    patchEvent(eventId, userId, target); // ✅ pasas solo el botón clicado
   }
 }
+

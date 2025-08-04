@@ -79,18 +79,23 @@ export async function oneEvent(id) {
   return response.json();
 }
 
-export async function patchEvent(eventId, userId) {
+export async function patchEvent(eventId, userId,btnAdd) {
   try {
     const response = await fetch(`${url}/events/${eventId}`);
     const event = await response.json();
+   
 
     if (event.users.includes(userId)) {
       alert("YA estás inscrito");
+      btnAdd.textContent = "Exit";
+       btnAdd.style.color = "red";
+
       return;
     }
 
     if (event.users.length >= event.capacity) {
       alert("el evento  esta lleno");
+     
       return;
     }
     await fetch(`${url}/events/${eventId}`, {
@@ -103,8 +108,11 @@ export async function patchEvent(eventId, userId) {
       }),
     });
 
-   
+    
     alert(" estás inscrito");
+   btnAdd.textContent = "Exit";
+       btnAdd.style.color = "red";
+
   } catch (error) {
     console.error("Error al verificar inscripción:", error);
   }
