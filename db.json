@@ -54,18 +54,14 @@
       "description": "harry poter",
       "date": "2025-08-06",
       "capacity": 10,
-      "users": [
-        "62e9"
-      ]
+      "users": []
     },
     {
       "name": "callese",
       "description": "superman",
       "date": "2025-08-06",
-      "capacity": 10,
-      "users": [
-        "62e9"
-      ],
+      "capacity": 2,
+      "users": [],
       "id": "7df7"
     }
   ]

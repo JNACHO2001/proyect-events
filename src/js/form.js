@@ -1,5 +1,5 @@
 import { redirecto } from "../../routes";
-import { oneEvent, postNewEvents } from "./services";
+import { oneEvent, postNewEvents, putEvent } from "./services";
 
 export function postEvents() {
   const title = document.querySelector(".form-title");

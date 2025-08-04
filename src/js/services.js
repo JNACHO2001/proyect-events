@@ -79,23 +79,34 @@ export async function oneEvent(id) {
   return response.json();
 }
 
-export async function patchEvent(eventId, userId,btnAdd) {
+export async function patchEvent(eventId, userId, btnAdd) {
   try {
     const response = await fetch(`${url}/events/${eventId}`);
     const event = await response.json();
-   
 
-    if (event.users.includes(userId)) {
-      alert("YA estás inscrito");
-      btnAdd.textContent = "Exit";
-       btnAdd.style.color = "red";
+    const enrolled = event.users.includes(userId);
 
+    if (enrolled) {
+      const newUsers = event.users.filter((id) => id !== userId);
+      await fetch(`${url}/events/${eventId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          users: newUsers,
+        }),
+      });
+
+      alert("te has salido con exito ");
+      btnAdd.textContent = "Ingresar";
+      btnAdd.style.color = "blue";
       return;
     }
 
     if (event.users.length >= event.capacity) {
       alert("el evento  esta lleno");
-     
+
       return;
     }
     await fetch(`${url}/events/${eventId}`, {
@@ -108,13 +119,29 @@ export async function patchEvent(eventId, userId,btnAdd) {
       }),
     });
 
-    
     alert(" estás inscrito");
-   btnAdd.textContent = "Exit";
-       btnAdd.style.color = "red";
-
+    btnAdd.textContent = "Exit";
+    btnAdd.style.color = "red";
   } catch (error) {
     console.error("Error al verificar inscripción:", error);
+  }
+}
+
+export async function putEvent(id, updateEvent) {
+  try {
+    const response = await fetch(`${url}/events/${id}`, {
+      method: "PUT",
+      headers: { "cntent-type": "application/json" },
+      body: JSON.stringify(updateEvent),
+    });
+
+    if (response.ok) {
+      alert("usuario actualizadp");
+    } else {
+      alert("no se pudo actulizar");
+    }
+  } catch (error) {
+    console.log("nuevo error", error);
   }
 }
 
