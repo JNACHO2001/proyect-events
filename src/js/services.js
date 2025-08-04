@@ -78,20 +78,35 @@ export async function oneEvent(id) {
   const response = await fetch(`${url}/events/${id}`);
   return response.json();
 }
-export async function putEvent(id, updateEvent) {
+
+export async function patchEvent(eventId, userId) {
   try {
-    const response = await fetch(`${url}/events/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updateEvent),
-    });
-    if (response.ok) {
-      alert("Registro actualizado");
-    } else {
-      alert("No se actualizo");
+    const response = await fetch(`${url}/events/${eventId}`);
+    const event = await response.json();
+
+    if (event.users.includes(userId)) {
+      alert("YA estás inscrito");
+      return;
     }
+
+    if (event.users.length >= event.capacity) {
+      alert("el evento  esta lleno");
+      return;
+    }
+    await fetch(`${url}/events/${eventId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        users: [...event.users, userId],
+      }),
+    });
+
+   
+    alert(" estás inscrito");
   } catch (error) {
-    console.log("no se cargo la peticion", error);
+    console.error("Error al verificar inscripción:", error);
   }
 }
 

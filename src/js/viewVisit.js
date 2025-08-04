@@ -1,5 +1,5 @@
 import { renderUserInfo, setupLogoutButton } from "./home";
-import { getViewEvents } from "./services";
+import { getViewEvents, patchEvent } from "./services";
 
 export function viewVisitSetup() {
   renderUserInfo();
@@ -43,17 +43,10 @@ function renderEventRow(event) {
 }
 
 async function handleEventActions(e) {
-  const user = JSON.parse(localStorage.getItem("current"));
   const target = e.target;
-
   if (target.classList.contains("btn-edit")) {
-    const id = target.dataset.id;
-    const events = await getViewEvents();
-
-    const event = events.find((ev) => ev.id == id);
-
-    if (!event.users.includes(user.id)) {
-      alert("no estas inscrito " + user.name + " al evento " + event.name);
-    }
+    const eventId = target.dataset.id;
+    const userId = JSON.parse(localStorage.getItem("current")).id;
+    patchEvent(eventId, userId);
   }
 }
