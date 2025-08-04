@@ -45,22 +45,44 @@
       "password": "123456",
       "confirmpassword": "123456",
       "roleId": 2
+    },
+    {
+      "id": "afd2",
+      "name": "fernando gomez",
+      "email": "fernando@gmail.com",
+      "phone": "789456",
+      "password": "123456",
+      "confirmpassword": "123456",
+      "roleId": 2
+    },
+    {
+      "id": "754a",
+      "name": "jhon",
+      "email": "jhon@gmail.com",
+      "phone": "798798798",
+      "password": "123456",
+      "confirmpassword": "123456",
+      "roleId": 2
     }
   ],
   "events": [
     {
-      "id": "d38f",
       "name": "pelicula",
       "description": "harry poter",
       "date": "2025-08-06",
-      "capacity": 10,
-      "users": []
+      "capacity": 3,
+      "users": [
+        "afd2",
+        "62e9",
+        "754a"
+      ],
+      "id": "d38f"
     },
     {
       "name": "callese",
       "description": "superman",
       "date": "2025-08-06",
-      "capacity": 2,
+      "capacity": 3,
       "users": [],
       "id": "7df7"
     }

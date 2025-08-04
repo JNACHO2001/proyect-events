@@ -8,7 +8,7 @@ export function viewVisitSetup() {
 }
 async function loadAndDisplayEvents() {
   const body = document.querySelector(".event-body");
-   const userId = JSON.parse(localStorage.getItem("current")).id; // Contenedor dinámico
+  const userId = JSON.parse(localStorage.getItem("current")).id; // Contenedor dinámico
   try {
     const data = await getViewEvents();
     body.innerHTML = "";
@@ -52,8 +52,6 @@ async function handleEventActions(e) {
   if (target.classList.contains("btn-edit")) {
     const eventId = target.dataset.id;
     const userId = JSON.parse(localStorage.getItem("current")).id;
-
-    patchEvent(eventId, userId, target); // ✅ pasas solo el botón clicado
+    patchEvent(eventId, userId, target);
   }
 }
-

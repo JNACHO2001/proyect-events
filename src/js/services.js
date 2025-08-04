@@ -136,7 +136,7 @@ export async function putEvent(id, updateEvent) {
     });
 
     if (response.ok) {
-      alert("usuario actualizadp");
+      alert("Evento actualizado");
     } else {
       alert("no se pudo actulizar");
     }

@@ -2,7 +2,6 @@ import { bts, postRegister } from "./services";
 
 export function registerender() {
   bts();
-  const url = "http://localhost:3000";
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const phoneInput = document.getElementById("phone");
